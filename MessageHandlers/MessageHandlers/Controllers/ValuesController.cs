@@ -1,39 +1,52 @@
-﻿using System;
+﻿using Handlers;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace MessageHandlers.Controllers
 {
+    [RoutePrefix("values")]
     public class ValuesController : ApiController
     {
-        // GET: api/Values
+        // GET <controller>
+        [HttpGet, Route("")]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            var getByIdUrl = Url.Link("GetById", new { id = 123 });
+
+            //return new string[] { "value1", "value2" };
+            return new string[] {
+                getByIdUrl,//original url
+                Request.GetSelfReferenceBaseUrl().ToString(),//the client base url if i have headers x-forwarded-host:mycompany.com:1234, x-forwarded-proto :https
+                Request.RebaseUrlForClient(new Uri(getByIdUrl)).ToString()//rebase url from client prespective
+            };
         }
 
-        // GET: api/Values/5
+        // GET <controller>/5
+        [OverrideActionFilters]
+        [HttpGet, Route("{id:int}")]
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Values
+        // POST <controller>
+        [HttpPost, Route("")]
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Values/5
+        // PUT <controller>/5
+        [HttpPut, Route("{id:int}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Values/5
+        // DELETE <controller>/5
+        [HttpDelete, Route("{id:int}")]
         public void Delete(int id)
         {
         }
     }
 }
+
