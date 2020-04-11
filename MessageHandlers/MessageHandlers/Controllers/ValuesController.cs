@@ -23,8 +23,7 @@ namespace MessageHandlers.Controllers
         }
 
         // GET <controller>/5
-        [OverrideActionFilters]
-        [HttpGet, Route("{id:int}")]
+        [HttpGet, Route("{id:int}", Name = "GetById")]
         public string Get(int id)
         {
             return "value";
