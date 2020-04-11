@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Filters.Filters;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace Filters.Controllers

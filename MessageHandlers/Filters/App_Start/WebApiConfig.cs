@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using Filters.Filters;
+using System.Web.Http;
 
 namespace Filters
 {
@@ -7,7 +8,7 @@ namespace Filters
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            config.Filters.Add(new RoutTimerFilter());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
