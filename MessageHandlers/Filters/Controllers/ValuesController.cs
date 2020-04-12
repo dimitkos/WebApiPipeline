@@ -1,5 +1,7 @@
 ﻿using Filters.Filters;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Web.Http;
 
 namespace Filters.Controllers
@@ -9,8 +11,10 @@ namespace Filters.Controllers
     {
         // GET <controller>
         [HttpGet, Route("")]
+        [ClientCacheControlFilter(ClientCacheControl.Private,10)]
         public IEnumerable<string> Get()
         {
+            Trace.WriteLine(DateTime.Now.ToLongDateString()+ "GetCalled");
             return new string[] { "value1", "value2" };
         }
 
