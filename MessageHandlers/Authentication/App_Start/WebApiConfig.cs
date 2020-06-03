@@ -1,7 +1,4 @@
 ﻿using Authentication.AuthFilters;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Http;
 
 namespace Authentication
@@ -16,6 +13,8 @@ namespace Authentication
             // Web API configuration and services
 
             config.Filters.Add(new BasicAuthFilterAttribute());
+            config.Filters.Add(new JwtAuthenticationFilterAttribute());
+
             config.Filters.Add(new AuthorizeAttribute());
             // Web API routes
             config.MapHttpAttributeRoutes();
