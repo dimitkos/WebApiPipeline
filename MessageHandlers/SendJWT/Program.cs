@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens;
 
@@ -16,7 +14,7 @@ namespace SendJWT
     {
         static void Main(string[] args)
         {
-            string _url = "http://localhost:1254/values";
+            string _url = "http://localhost:57377/values";
 
             // the token issuer urn, and the audience urn I intend this token for
             string _issuer = "http://my.tokenissuer.com";
