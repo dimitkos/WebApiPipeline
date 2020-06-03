@@ -16,6 +16,7 @@ namespace Authentication
             // Web API configuration and services
 
             config.Filters.Add(new BasicAuthFilterAttribute());
+            config.Filters.Add(new AuthorizeAttribute());
             // Web API routes
             config.MapHttpAttributeRoutes();
 
