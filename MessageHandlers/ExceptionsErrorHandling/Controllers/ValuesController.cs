@@ -28,7 +28,7 @@ namespace ExceptionsErrorHandling.Controllers
             return "value";
         }
 
-        // POST: api/Values
+        [HttpPost, Route("")]
         public void Post([FromBody]string value)
         {
             throw new NotImplementedException();
