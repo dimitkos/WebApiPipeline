@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ExceptionsErrorHandling.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -7,17 +8,23 @@ using System.Web.Http;
 
 namespace ExceptionsErrorHandling.Controllers
 {
+    [RoutePrefix("values")]
     public class ValuesController : ApiController
     {
-        // GET: api/Values
+        // GET api/<controller>
+        [HttpGet, Route("")]
         public IEnumerable<string> Get()
         {
+            throw new InvalidOperationException();
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/Values/5
+        // GET api/<controller>/5
+        [HttpGet, Route("{id:int}")]
+        [InvalidAccountIdExceptionFilter]
         public string Get(int id)
         {
+            throw new ArgumentOutOfRangeException("id", "IDs must be in the range 1 to 50");
             return "value";
         }
 
