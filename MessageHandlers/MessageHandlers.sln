@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SendJWT", "SendJWT\SendJWT.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionsErrorHandling", "ExceptionsErrorHandling\ExceptionsErrorHandling.csproj", "{8ED85DDF-5182-4DC1-BC4B-C5A6680BF4A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{0A4E486B-5CBA-4714-88B9-3C4C23E0A4B9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestRename", "ClassLibrary1\TestRename.csproj", "{0A4E486B-5CBA-4714-88B9-3C4C23E0A4B9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
